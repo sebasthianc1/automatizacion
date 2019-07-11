@@ -18,7 +18,7 @@ import com.qvision.ejerciciofinal.pages.EscribirArchivo;
 import net.serenitybdd.core.pages.PageObject;
  
  /**
-  * AutomatizaciÛn_El_Empleo.com
+  * Automatizaci√≥n_El_Empleo.com
   * @author Sebasthian Arias
   * @version 1.1
   * 
@@ -61,7 +61,7 @@ public class BuquedaPagina extends PageObject {
 	@FindBy(xpath="//span[contains(@class, 'info-company-name')]")
 	List<WebElement> lblListCompany;
 	
-	public void filterByWages(String dateRange,String workArea) {
+	public void filterByWages(String rangoFecha,String areaTrabajo) {
 		
 	    int i = 0,t=0;
 	      try {
@@ -75,7 +75,7 @@ public class BuquedaPagina extends PageObject {
 		       ejecutar.executeScript("window.scrollBy(0,1000)");
 	
 		for (WebElement radio : raListDates) {
-				if (radio.getText().contains(dateRange)) {
+				if (radio.getText().contains(rangoFecha)) {
 		        	
 		        	for (WebElement lista:raListPublishDates) {
 		        		 
@@ -97,7 +97,7 @@ Thread.sleep(5000);
 		for (WebElement listArea:txtListEmployArea ) {
 			System.out.println("Valor de la lista de arear de trabajo:"+listArea.getText());
 	
-			if (listArea.getText().contains(workArea)) {
+			if (listArea.getText().contains(areaTrabajo)) {
 				listArea.click();
 				break;
 			}
@@ -130,7 +130,7 @@ public void saveFileWithJobOffersGenerated() {
 		boolean isVisible = false;
 		try {
 			System.out.println(lblSubTitle.getText());
-			if (lblSubTitle.getText().contains("Empleos Contador en Bogot·")) {
+			if (lblSubTitle.getText().contains("Empleos Contador en Bogot√°")) {
 				isVisible = true;
 			}
 		} catch (Exception e) {
